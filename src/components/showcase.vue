@@ -73,9 +73,3 @@
 		</tfoot>
 	</table>
 </template>
-
-<style scoped>
-.divide {
-	margin-top: 1.5rem;
-}
-</style>

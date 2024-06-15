@@ -1,0 +1,47 @@
+div.tooltip {
+	position: absolute;
+	background-color: var(--c-gray);
+	color: var(--c-white-soft);
+	padding: 5px 10px;
+	border-radius: 4px;
+	opacity: 0;
+	transition: opacity 0.2s;
+	pointer-events: none;
+	user-select: none;
+	z-index: 9999;
+}
+
+div.tooltip::after {
+	content: " ";
+	position: absolute;
+	border-width: 6px;
+	border-style: solid;
+}
+
+div.tooltip.top::after {
+	margin-left: -6px;
+	top: 98%;
+	left: 50%;
+	border-color: var(--c-gray) transparent transparent transparent;
+}
+
+div.tooltip.bottom::after {
+	margin-left: -6px;
+	bottom: 98%;
+	left: 50%;
+	border-color: transparent transparent var(--c-gray) transparent;
+}
+
+div.tooltip.right::after {
+	margin-top: -6px;
+	top: 50%;
+	right: 99.5%;
+	border-color: transparent var(--c-gray) transparent transparent;
+}
+
+div.tooltip.left::after {
+	margin-top: -6px;
+	top: 50%;
+	left: 99.5%;
+	border-color: transparent transparent transparent var(--c-gray);
+}
