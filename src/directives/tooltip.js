@@ -1,16 +1,24 @@
 import { IS_BROWSER } from '@/utils/index';
+import { isString, isUndefined, isUndefinedOrNull } from '@/utils/inspect';
 import { addClass, setStyle, getBCR } from '@/utils/dom';
 
 export default {
-	beforeMount(el, binding) {
+	beforeMount(el, binding, vnode) {
 		const position = Object.keys(binding.modifiers)[0] || "top";
-		const text = binding.value;
 		let tooltip = null;
+		let title = undefined;
+
+		if (isString(binding.value)) {
+			title = binding.value;
+		} else if (isUndefined(binding.value)) {
+			const attrs = vnode.props;
+			title = attrs && !isUndefinedOrNull(attrs.tooltip) ? attrs.tooltip : undefined;
+		}
 
 		const createTooltip = () => {
 			tooltip = document.createElement("div");
 			tooltip.className = "tooltip";
-			tooltip.innerText = text;
+			tooltip.innerText = title;
 			document.body.appendChild(tooltip);
 		};
 

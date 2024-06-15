@@ -1,4 +1,5 @@
-import { IS_BROWSER, isNull } from './index';
+import { IS_BROWSER } from './index';
+import { isNull } from './inspect';
 import { addClass, setStyle, getBCR } from './dom';
 
 let scrollbarWidth = null;
