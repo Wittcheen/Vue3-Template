@@ -1,6 +1,13 @@
 <template>
 	<main>
-		<div class="tooltip-showcase">
+		<div>
+			<toggle-switch v-model:checked="showcaseSwitch" label="Switch for true/false" />
+		</div>
+		<div class="divide">
+			<toggle-switch v-model:checked="showcaseSwitch" disabled label="Disabled switch" />
+		</div>
+
+		<div class="divide tooltip-showcase">
 			<p v-tooltip.top="'This is a top tooltip!'">Top tooltip (hover me)</p>
 			<p v-tooltip.bottom="'This is a bottom tooltip!'">Bottom tooltip (hover me)</p>
 			<p v-tooltip.right="'This is a right tooltip!'" style="margin-right: 1rem;">Right tooltip (hover me)</p>
@@ -12,9 +19,20 @@
 </template>
 
 <script>
+import toggleSwitch from '@/components/base/toggle-switch.vue';
 import showcase from '@/components/showcase.vue';
 export default {
-	components: { showcase }
+	components: { toggleSwitch, showcase },
+	data() {
+		return {
+			showcaseSwitch: false
+		};
+	},
+	watch: {
+		showcaseSwitch(newValue) {
+			console.log("Showcase Switch: " + newValue);
+		}
+	}
 };
 </script>
 
