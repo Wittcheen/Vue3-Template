@@ -25,7 +25,6 @@ export default {
 
 <style scoped>
 label.switch-container {
-	cursor: pointer;
 	display: flex;
 	align-items: center;
 	width: fit-content;
