@@ -11,6 +11,9 @@
 
 	--c-blue: #5157eb;
 	--c-blue-muted: #679bff;
+
+	--c-green: #51d34f;
+	--c-red: #eb4747;
 }
 
 *::before, *,
@@ -355,7 +358,7 @@ input[type="file"]::file-selector-button, button {
 	border: 0;
 	background-color: var(--c-gray);
 	padding: 0.6em 1.0em;
-	font: 12px system-ui;
+	font-size: 12px;
 	cursor: pointer;
 	user-select: none;
 	line-height: 1;
@@ -363,12 +366,12 @@ input[type="file"]::file-selector-button, button {
 
 input:is([type="button"], [type="submit"], [type="reset"]):hover,
 input[type="file"]::file-selector-button:hover, button:hover {
-	background-color: var(--c-gray-muted);
+	background-color: hsl(from var(--c-gray) h s calc(l + 5));
 }
 
 input:is([type="button"], [type="submit"], [type="reset"]):active,
 input[type="file"]::file-selector-button:active, button:active {
-	background-color: var(--c-gray-muted);
+	background-color: hsl(from var(--c-gray) h s calc(l + 10));
 }
 
 input[type="submit"], input[type="submit"]:active,

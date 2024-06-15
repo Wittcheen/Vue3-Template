@@ -10,3 +10,58 @@ body {
 .divide {
 	margin-top: 1.5rem;
 }
+
+div.measure-scrollbar {
+	visibility: hidden;
+	width: 100px;
+	overflow: scroll;
+}
+
+body.modal-open {
+	overflow: hidden;
+	user-select: none;
+}
+
+#modals:has(div.modal-wrapper) {
+	position: fixed;
+	z-index: 9998;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.75);
+}
+
+/* MODAL DESIGNS */
+
+div.modal-container div.button-row {
+	display: flex;
+	place-content: flex-end;
+	border-top: 1px solid var(--c-gray);
+	padding-top: 1em;
+}
+
+button.modal {
+	font-weight: 600;
+	text-transform: capitalize;
+	margin-right: 1em;
+	font-size: 0.8rem;
+	padding: 0.9em 1.2em 0.8em 1.2em;
+}
+button.modal:last-of-type {
+	margin-right: 0;
+}
+
+button.modal.red {
+	background-color: var(--c-red);
+}
+button.modal.red:hover {
+	background-color: hsl(from var(--c-red) h s calc(l - 5));
+}
+
+button.modal.green {
+	background-color: var(--c-green);
+}
+button.modal.green:hover {
+	background-color: hsl(from var(--c-green) h s calc(l - 10));
+}

@@ -1,6 +1,18 @@
 <template>
 	<main>
-		<div>
+		<modal-button modal-id="showcase">Open Modal</modal-button>
+		<modal id="showcase">
+			<template #header>Showcase</template>
+			<template #content>
+				<h3 style="margin: 20px auto;">Are you sure?</h3>
+				<div class="button-row">
+					<button class="modal red" @click="buttonDeny('showcase')">deny</button>
+					<button class="modal green" @click="buttonConfirm('showcase')">confirm</button>
+				</div>
+			</template>
+		</modal>
+
+		<div class="divide">
 			<toggle-switch v-model:checked="showcaseSwitch" label="Switch for true/false" />
 		</div>
 		<div class="divide">
@@ -19,14 +31,29 @@
 </template>
 
 <script>
+import { delay } from '@/utils/index';
+import { modalButton, modal } from '@/components/base/modal';
+import { modalService } from '@/services/modal';
 import toggleSwitch from '@/components/base/toggle-switch.vue';
 import showcase from '@/components/showcase.vue';
 export default {
-	components: { toggleSwitch, showcase },
+	components: { modalButton, modal, toggleSwitch, showcase },
 	data() {
 		return {
 			showcaseSwitch: false
 		};
+	},
+	methods: {
+		async buttonDeny(modalId) {
+			modalService.closeModal(modalId);
+			await delay(100);
+			alert("Denied");
+		},
+		async buttonConfirm(modalId) {
+			modalService.closeModal(modalId);
+			await delay(100);
+			alert("Confirmed");
+		}
 	},
 	watch: {
 		showcaseSwitch(newValue) {
