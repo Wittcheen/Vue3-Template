@@ -1,6 +1,6 @@
 <template>
 	<label class="switch-container">
-		<input v-bind="$attrs" type="checkbox" :checked="checked"
+		<input v-bind="$attrs" :id="id" type="checkbox" :checked="checked"
 			@change="$emit('update:checked', $event.target.checked)" />
 		<span class="switch"></span>
 		<span class="label">{{ label }}</span>
@@ -11,6 +11,10 @@
 export default {
 	inheritAttrs: false,
 	props: {
+		id: {
+			type: String,
+			required: true
+		},
 		checked: {
 			type: Boolean,
 			required: true
