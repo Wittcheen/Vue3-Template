@@ -28,19 +28,19 @@ export default {
 
 			if (position === "top") {
 				addClass(tooltip, "top");
-				setStyle(tooltip, "top", `${rect.top - tooltipRect.height - 5}px`);
+				setStyle(tooltip, "top", `${rect.top - tooltipRect.height - 5 + window.scrollY}px`);
 				setStyle(tooltip, "left", `${rect.left + (rect.width - tooltipRect.width) / 2}px`);
 			} else if (position === "bottom") {
 				addClass(tooltip, "bottom");
-				setStyle(tooltip, "top", `${rect.bottom + 5}px`);
+				setStyle(tooltip, "top", `${rect.bottom + 5 + window.scrollY}px`);
 				setStyle(tooltip, "left", `${rect.left + (rect.width - tooltipRect.width) / 2}px`);
 			} else if (position === "right") {
 				addClass(tooltip, "right");
-				setStyle(tooltip, "top", `${rect.top + (rect.height - tooltipRect.height) / 2}px`);
+				setStyle(tooltip, "top", `${rect.top + (rect.height - tooltipRect.height) / 2 + window.scrollY}px`);
 				setStyle(tooltip, "left", `${rect.right + 10}px`);
 			} else if (position === "left") {
 				addClass(tooltip, "left");
-				setStyle(tooltip, "top", `${rect.top + (rect.height - tooltipRect.height) / 2}px`);
+				setStyle(tooltip, "top", `${rect.top + (rect.height - tooltipRect.height) / 2 + window.scrollY}px`);
 				setStyle(tooltip, "left", `${rect.left - tooltipRect.width - 10}px`);
 			}
 		};
